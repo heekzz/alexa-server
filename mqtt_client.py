@@ -9,7 +9,7 @@ def on_connect(client, obj, flags, rc):
     print("Connected with result code "+str(rc))
     # Subscribing in on_connect() means that if we lose the connection and
     # reconnect then subscriptions will be renewed.
-    client.subscribe("$SYS/#")
+    client.subscribe("/hakansson/#")
 
 
 # The callback for when a PUBLISH message is received from the server.
@@ -21,7 +21,7 @@ client = mqtt.Client()
 client.on_connect = on_connect
 client.on_message = on_message
 
-client.connect("m2m.eclipse.org", 1883, 60)
+client.connect("localhost", 1883, 60)
 
 # Blocking call that processes network traffic, dispatches callbacks and
 # handles reconnecting.

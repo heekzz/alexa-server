@@ -27,6 +27,9 @@ def say_message(message):
     else:
         answer = 'Fail'
 
+    client = mqtt.Client()
+    client.connect("localhost", 1883, 60)
+    client.publish("/hakansson/test", "testing")
     return statement(answer)
 
 
